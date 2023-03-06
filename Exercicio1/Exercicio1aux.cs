@@ -2,8 +2,7 @@
 
 
 double[] numeros = new double[15];
-double maior = 0, menor = 0;
-int contador = 0, opcao = 0;
+int opcao = 0;
 
 int menu()
 {
@@ -13,25 +12,27 @@ int menu()
     Console.WriteLine("2 - Sair.");
 
     int.TryParse(Console.ReadLine(), out opcao);
+    if (opcao == 0)
+        int.TryParse(Console.ReadLine(), out opcao);
 
     return opcao;
 }
 void inserirnum()
 {
-    contador = 0;
+    int contador = 0;
     Console.Clear();
     do
     {
         Console.Write($"Informe o {contador + 1} número: ");
         double.TryParse(Console.ReadLine(), out numeros[contador]);
         contador++;
-
     } while (contador < 15);
     Console.Clear();
 }
 
 void acharmaior()
 {
+    double maior = 0;
     maior = numeros[0];
     for (int i = 0; i < 15 ; i++)
     {
@@ -45,6 +46,7 @@ void acharmaior()
 
 void acharmenor()
 {
+    double menor = 0;
     menor = numeros[0];
     for (int i =0; i < 15; i++)
     {
